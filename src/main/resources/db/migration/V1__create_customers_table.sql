@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE customers (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(20) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    gender VARCHAR(20) NOT NULL,
+    mother_name VARCHAR(100) NOT NULL,
+    father_name VARCHAR(100) NOT NULL,
+    marital_status VARCHAR(30) NOT NULL,
+    occupation VARCHAR(100),
+    citizenship VARCHAR(100) NOT NULL,
+    photograph VARCHAR(255) NOT NULL,
+    status VARCHAR(30) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+);
