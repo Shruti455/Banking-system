@@ -1,0 +1,663 @@
+.bank-open-page {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(22px, 3vw, 36px);
+      background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--accent-color), transparent 84%) 0, transparent 28%),
+        radial-gradient(circle at left center, color-mix(in srgb, var(--warning-color, #f0ad4e), transparent 90%) 0, transparent 30%),
+        linear-gradient(180deg, color-mix(in srgb, var(--surface-color), var(--background-color) 30%) 0%, var(--background-color) 100%);
+    }
+
+    .bank-open-main {
+      max-width: 960px;
+    }
+
+    .bank-open-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .bank-open-aside,
+    .bank-open-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bank-open-aside {
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color), white 92%) 0%, var(--card-bg) 100%);
+      box-shadow: 0 20px 60px color-mix(in srgb, var(--heading-color), transparent 93%);
+      padding: 24px;
+    }
+
+    .bank-open-aside::before,
+    .bank-open-card::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 0 -40px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--accent-color), transparent 92%);
+      pointer-events: none;
+    }
+
+    .bank-open-card {
+      border-radius: 24px;
+      padding: clamp(20px, 3vw, 30px);
+    }
+
+    .bank-open-badge,
+    .bank-open-stat,
+    .bank-open-note,
+    .bank-open-summary,
+    .bank-open-panel {
+      border: 1px solid var(--border-color);
+      background: var(--surface-color);
+      border-radius: 18px;
+    }
+
+    .bank-open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      border-color: color-mix(in srgb, var(--accent-color), transparent 78%);
+    }
+
+    .bank-open-kicker {
+      color: var(--muted-color);
+      font-size: 0.82rem;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+
+    .bank-open-feature-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .bank-open-feature-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--card-bg), white 18%);
+      border: 1px solid color-mix(in srgb, var(--border-color), transparent 10%);
+    }
+
+    .bank-open-feature-list i,
+    .bank-open-meta i,
+    .bank-choice-icon,
+    .bank-review-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      color: var(--accent-color);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .bank-open-feature-list strong,
+    .bank-open-meta strong,
+    .bank-summary-label,
+    .bank-review-item strong {
+      display: block;
+      color: var(--heading-color);
+      font-weight: 700;
+    }
+
+    .bank-open-feature-list span,
+    .bank-open-meta span,
+    .bank-summary-value,
+    .bank-review-item span:not(.bank-review-icon) {
+      display: block;
+      color: var(--muted-color);
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .bank-open-meta {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .bank-open-meta-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+    }
+
+    .bank-open-head {
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .bank-open-head-copy {
+      max-width: 100%;
+    }
+
+    .bank-open-head-copy .fauth-title {
+      font-size: clamp(1.65rem, 2.4vw, 2.2rem);
+    }
+
+    .bank-open-head-copy .fauth-subtitle {
+      font-size: 0.94rem;
+      max-width: 58ch;
+    }
+
+    .bank-open-stat {
+      min-width: 210px;
+      padding: 16px 18px;
+      box-shadow: inset 0 1px 0 color-mix(in srgb, white, transparent 40%);
+    }
+
+    .bank-open-stat .mono {
+      color: var(--accent-color);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .bank-open-stat strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--heading-color);
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .bank-open-stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted-color);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .bank-open-progress {
+      margin-bottom: 20px;
+    }
+
+    .bank-open-steps {
+      align-items: stretch;
+      position: relative;
+    }
+
+    .bank-open-steps::before {
+      display: none;
+    }
+
+    .bank-open-steps .wizard-step {
+      gap: 2px;
+      height: 96px;
+      padding: 14px 10px 12px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bank-open-steps .wizard-step-icon {
+      width: 50px !important;
+      height: 50px !important;
+      min-width: 50px;
+      min-height: 50px;
+      max-width: 50px;
+      max-height: 50px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .bank-open-steps .wizard-step-label {
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .bank-open-steps .wizard-step-label small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted-color);
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .bank-open-progressbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--surface-color), var(--background-color) 25%);
+      border: 1px solid var(--border-color);
+    }
+
+    .bank-open-progressbar .progress {
+      height: 8px;
+      flex: 1;
+      background: color-mix(in srgb, var(--border-color), transparent 35%);
+    }
+
+    .bank-open-progressbar .progress-bar {
+      background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), white 32%));
+    }
+
+    .bank-open-step-meta {
+      min-width: 130px;
+      text-align: right;
+      color: var(--heading-color);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .bank-open-panel {
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .bank-open-panel:last-child {
+      margin-bottom: 0;
+    }
+
+    .bank-open-panel-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .bank-open-panel-title h5,
+    .bank-open-panel-title h6 {
+      margin: 0;
+      color: var(--heading-color);
+    }
+
+    .bank-open-panel-title p {
+      margin: 4px 0 0;
+      color: var(--muted-color);
+      font-size: 0.82rem;
+    }
+
+    .bank-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .bank-choice {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      height: 100%;
+    }
+
+    .bank-choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .bank-choice-card {
+      height: 100%;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+    }
+
+    .bank-choice:hover .bank-choice-card {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+    }
+
+    .bank-choice input:checked + .bank-choice-card {
+      border-color: var(--accent-color);
+      background: color-mix(in srgb, var(--accent-color), transparent 92%);
+      box-shadow: 0 16px 30px color-mix(in srgb, var(--accent-color), transparent 88%);
+    }
+
+    .bank-choice-card strong {
+      display: block;
+      margin: 14px 0 6px;
+      color: var(--heading-color);
+      font-size: 0.92rem;
+    }
+
+    .bank-choice-card span {
+      display: block;
+      color: var(--muted-color);
+      font-size: 0.79rem;
+      line-height: 1.6;
+    }
+
+    .bank-open-form .form-control,
+    .bank-open-form .form-select {
+      border-radius: 5px;
+      min-height: 42px;
+    }
+
+    .bank-open-form textarea.form-control {
+      min-height: 110px;
+      padding-top: 12px;
+    }
+
+    .bank-open-note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      margin-top: 18px;
+    }
+
+    .bank-open-note i {
+      color: var(--warning-color, #f0ad4e);
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+
+    .bank-open-note strong {
+      display: block;
+      color: var(--heading-color);
+      margin-bottom: 4px;
+    }
+
+    .bank-open-note span {
+      color: var(--muted-color);
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    /* Validation Icon Styles */
+    .form-control.is-invalid, 
+    .form-select.is-invalid {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right calc(0.375em + 0.1875rem) center;
+      background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+      padding-right: calc(1.5em + 0.75rem) !important;
+    }
+
+    .invalid-feedback {
+      font-size: 0.75rem;
+      margin-top: 4px;
+      color: #dc3545;
+      font-weight: 500;
+    }
+
+    /* Button Theme Overrides */
+    .btn-primary {
+      background-color: var(--accent-color) !important;
+      border-color: var(--accent-color) !important;
+      color: #fff !important;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: color-mix(in srgb, var(--accent-color), black 15%) !important;
+      border-color: color-mix(in srgb, var(--accent-color), black 15%) !important;
+      box-shadow: 0 4px 12px rgba(65, 84, 241, 0.25) !important;
+    }
+
+    .btn-primary:disabled {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 60%) !important;
+      border-color: color-mix(in srgb, var(--accent-color), transparent 60%) !important;
+      cursor: not-allowed;
+    }
+
+    .input-group .form-control.is-invalid {
+      z-index: 2;
+    }
+
+    .btn-resend {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+
+    .btn-resend:hover {
+      text-decoration: underline;
+      color: var(--accent-color);
+    }
+
+    .fw-500 {
+      font-weight: 500;
+    }
+
+    .bank-review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .bank-open-summary {
+      padding: 18px;
+      height: 100%;
+    }
+
+    .bank-summary-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .bank-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 18px;
+    }
+
+    .bank-summary-item {
+      min-width: 0;
+    }
+
+    .bank-summary-value {
+      color: var(--heading-color);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .bank-review-box {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px dashed color-mix(in srgb, var(--accent-color), transparent 55%);
+      background: color-mix(in srgb, var(--accent-color), transparent 94%);
+    }
+
+    .bank-review-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .bank-review-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+    }
+
+    .bank-review-item .bank-review-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .bank-open-submit {
+      min-width: 190px;
+    }
+
+    @media (max-width: 991.98px) {
+      .bank-open-stat {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .bank-open-page {
+        padding-inline: 14px;
+      }
+
+      .bank-open-card,
+      .bank-open-aside {
+        border-radius: 18px;
+        padding: 18px;
+      }
+
+      .bank-open-progressbar {
+        display: none;
+      }
+
+      .bank-open-steps {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .bank-open-steps::before {
+        display: none;
+      }
+
+      .bank-open-steps .wizard-step {
+        flex: 1 1 0;
+        min-width: 0;
+        height: 72px;
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 10px 4px 8px;
+        background: var(--surface-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bank-open-steps .wizard-step-label {
+        font-size: 0.68rem;
+        line-height: 1.25;
+      }
+
+      .bank-open-steps .wizard-step-label small {
+        display: none;
+      }
+
+      .bank-open-steps .wizard-step-icon {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px;
+        min-height: 30px;
+        max-width: 30px;
+        max-height: 30px;
+        aspect-ratio: 1 / 1;
+        border-width: 1px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .bank-open-steps .wizard-step-number {
+        font-size: 0.72rem;
+      }
+
+      .bank-open-step-meta {
+        display: none;
+      }
+
+      .bank-review-grid,
+      .bank-summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wizard-actions {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .wizard-actions .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 479.98px) {
+      .bank-open-page {
+        padding-inline: 10px;
+      }
+
+      .bank-open-card,
+      .bank-open-aside {
+        padding: 16px;
+      }
+
+      .bank-open-panel {
+        padding: 16px;
+      }
+
+      .bank-open-steps {
+        gap: 6px;
+      }
+
+      .bank-open-steps .wizard-step {
+        height: 68px;
+        padding: 9px 2px 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .bank-open-steps .wizard-step-label {
+        font-size: 0.64rem;
+      }
+
+      .bank-open-steps .wizard-step-icon {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px;
+        min-height: 28px;
+        max-width: 28px;
+        max-height: 28px;
+        aspect-ratio: 1 / 1;
+        flex-shrink: 0;
+      }
+    }

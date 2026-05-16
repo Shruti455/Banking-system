@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NiceAdmin Bank - Secure Login</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="NiceAdmin Bank secure login portal">
+  <meta name="keywords" content="bank, login, secure, niceadmin">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts - Nunito Sans + Poppins + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/remixicon.css" rel="stylesheet">
+  <link href="assets/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/phosphor-icons.css" rel="stylesheet">
+  <link href="assets/css/lucide.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/quill.snow.css" rel="stylesheet">
+  <link href="assets/css/quill.bubble.css" rel="stylesheet">
+  <link href="assets/css/choices.min.css" rel="stylesheet">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/pages/account_opening.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="fauth">
+    <main class="fauth-main">
+      <div class="fauth-main-inner">
+        <a href="index.html" class="fauth-logo fauth-logo-center">
+          <img src="assets/img/logo.webp" alt="NiceAdmin">
+          <span>NiceAdmin</span>
+        </a>
+
+        <div class="fauth-card">
+          <div class="fauth-card-head">
+            <span class="fauth-kicker"><i class="bi bi-shield-check"></i> Secure Banking</span>
+            <h1 class="fauth-title">Secure Login</h1>
+            <p class="fauth-subtitle">Access your NiceAdmin Bank account with your credentials.</p>
+          </div>
+
+          <form class="fauth-form" novalidate>
+            <div class="fauth-field">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="fauth-field">
+              <div class="fauth-row-between">
+                <label for="password" class="form-label">Password</label>
+                <a href="auth-forgot-password.html" class="fauth-link">Forgot password?</a>
+              </div>
+              <div class="input-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password>
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="fauth-row-between mb-3">
+              <div class="form-check mb-0">
+                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                <label class="form-check-label" for="remember">Remember me</label>
+              </div>
+              <a href="auth-forgot-password.html" class="fauth-link">Need help?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Sign In</button>
+          </form>
+
+          <p class="fauth-foot-text">Don't have an account? <a href="auth-register.html" class="fauth-link">Create one</a></p>
+        </div>
+
+        <footer class="footer-centered">
+          <div class="footer-copyright">&copy; 2026 <a href="#">NiceAdmin</a>. All Rights Reserved.</div>
+          <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Help</a></div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flex-admin-bootstrap-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+
+
+  <!-- Vendor JS Files -->
+  <script data-cfasync="false" src="assets/js/email-decode.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  <script src="assets/js/apexcharts.min.js"></script>
+  <script src="assets/js/chart.umd.js"></script>
+  <script src="assets/js/echarts.min.js"></script>
+  <script src="assets/js/simple-datatables.js"></script>
+  <script src="assets/js/quill.js"></script>
+  <script src="assets/js/tinymce.min.js"></script>
+  <script src="assets/js/choices.min.js"></script>
+  <script src="assets/js/flatpickr.min.js"></script>
+  <script src="assets/js/validate.js"></script>
+
+  <!-- Template Main JS Files -->
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- App Sidebar Toggle (for app pages with sidebars) -->
+  <script src="assets/js/apps-sidebar-toggle.js"></script>
+
+  <!-- Page Specific JS Files -->
+  <script src="assets/js/pages/account_opening/validation.js"></script>
+  <script src="assets/js/pages/account_opening/wizard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Account Opening - NiceAdmin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="NiceAdmin self-service bank account opening wizard">
+  <meta name="keywords" content="bank, account opening, wizard, bootstrap">
+
+  <!-- Favicons -->
+    <link th:href="@{/assets/img/favicon.png}" rel="icon">
+    <link th:href="@{/assets/img/apple-touch-icon.png}" rel="apple-touch-icon">
+
+  <!-- Google Fonts - Nunito Sans + Poppins + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Nunito+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/remixicon.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/all.min.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/phosphor-icons.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/lucide.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/style.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/quill.snow.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/quill.bubble.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/choices.min.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/flatpickr.min.css}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link th:href="@{/assets/css/main.css}" rel="stylesheet">
+  <link th:href="@{/assets/css/pages/account_opening.css}" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="fauth bank-open-page">
+    <main class="fauth-main bank-open-main">
+      <div class="fauth-main-inner">
+        <a th:href="@{/}" class="fauth-logo fauth-logo-center">
+          <img th:src="@{/assets/img/logo.webp}" alt="NiceAdmin">
+          <span>NiceAdmin</span>
+        </a>
+
+        <div class="bank-open-shell">
+          <div class="fauth-card bank-open-card">
+            <div class="bank-open-head">
+              <div class="bank-open-head-copy">
+                <span class="fauth-kicker"><i class="bi bi-bank"></i> Indian Customer Account Opening</span>
+                <h1 class="fauth-title">Savings account opening form</h1>
+                <p class="fauth-subtitle">Designed from the account opening flow document: personal details, mobile OTP, PAN and Aadhaar verification, account setup and final consent. Since this is a design mockup, all eKYC values are shown as editable input fields.</p>
+              </div>
+            </div>
+
+            <form method="post" class="fauth-form bank-open-form" id="bankOpeningWizard" enctype="multipart/form-data" novalidate>
+              <div class="bank-open-progress">
+                <div class="wizard-steps bank-open-steps">
+                  <div class="wizard-step active" data-step="1">
+                    <div class="wizard-step-icon">
+                      <span class="wizard-step-number">1</span>
+                      <i class="bi bi-check-lg wizard-step-check"></i>
+                    </div>
+                    <div class="wizard-step-label">Personal<small>Basic details</small></div>
+                  </div>
+                  <div class="wizard-step" data-step="2">
+                    <div class="wizard-step-icon">
+                      <span class="wizard-step-number">2</span>
+                      <i class="bi bi-check-lg wizard-step-check"></i>
+                    </div>
+                    <div class="wizard-step-label">Mobile & Email<small>OTP verify</small></div>
+                  </div>
+                  <div class="wizard-step" data-step="3">
+                    <div class="wizard-step-icon">
+                      <span class="wizard-step-number">3</span>
+                      <i class="bi bi-check-lg wizard-step-check"></i>
+                    </div>
+                    <div class="wizard-step-label">KYC & Address<small>KYC details</small></div>
+                  </div>
+                  <div class="wizard-step" data-step="4">
+                    <div class="wizard-step-icon">
+                      <span class="wizard-step-number">4</span>
+                      <i class="bi bi-check-lg wizard-step-check"></i>
+                    </div>
+                    <div class="wizard-step-label">Account Setup<small>Nominee & access</small></div>
+                  </div>
+                  <div class="wizard-step" data-step="5">
+                    <div class="wizard-step-icon">
+                      <span class="wizard-step-number">5</span>
+                      <i class="bi bi-check-lg wizard-step-check"></i>
+                    </div>
+                    <div class="wizard-step-label">Review<small>Consent & submit</small></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bank-open-progressbar">
+                <div class="progress" aria-hidden="true">
+                  <div class="progress-bar" id="bankProgressBar" role="progressbar" style="width: 20%"></div>
+                </div>
+                <div class="bank-open-step-meta" id="bankStepMeta">Step 1 of 5</div>
+              </div>
+
+              <div class="wizard-content active" data-step="1">
+                <div class="bank-open-panel">
+                  <div class="bank-open-panel-title">
+                    <div>
+                      <h5>Personal details</h5>
+                      <p>Capture the customer's personal profile separately before PAN and Aadhaar verification.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-2">
+                      <label for="title" class="form-label">Title</label>
+                      <select class="form-select" id="title" name="title">
+                        <option value="">Title</option>
+                        <option>Mr.</option>
+                        <option>Mrs.</option>
+                        <option>Ms.</option>
+                        <option>Dr.</option>
+                      </select>
+                    </div>
+                    <div class="col-md-5">
+                      <label for="firstName" class="form-label">First name</label>
+                      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Rahul">
+                    </div>
+                    <div class="col-md-5">
+                      <label for="lastName" class="form-label">Last name</label>
+                      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Sharma">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="dob" class="form-label">Date of birth</label>
+                      <input type="date" class="form-control" id="dob" name="dob">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="gender" class="form-label">Gender</label>
+                      <select class="form-select" id="gender" name="gender">
+                        <option value="">Select gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="motherName" class="form-label">Mother's name</label>
+                      <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Sunita Sharma">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="fatherName" class="form-label">Father's name</label>
+                      <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="Ramesh Sharma">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="maritalStatus" class="form-label">Marital status</label>
+                      <select class="form-select" id="maritalStatus" name="maritalStatus">
+                        <option value="">Select status</option>
+                        <option>Single</option>
+                        <option>Married</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="occupation" class="form-label">Occupation</label>
+                      <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Software Engineer">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="citizenship" class="form-label">Citizenship</label>
+                      <select class="form-select" id="citizenship" name="citizenship">
+                        <option value="">Select citizenship</option>
+                        <option selected>Indian</option>
+                        <option>NRI</option>
+                        <option>OCI</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="photograph" class="form-label">Photograph</label>
+                      <input type="file" class="form-control" id="photograph" name="photograph" accept="image/*">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-content" data-step="2">
+                <div class="bank-open-panel">
+                  <div class="bank-open-panel-title">
+                    <div>
+                      <h5>Mobile & Email verification</h5>
+                      <p>Verify the customer's identity by capturing their mobile number and email with OTP verification.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="mobileNumber" class="form-label">Mobile number</label>
+                      <div class="input-group">
+                        <input type="tel" class="form-control" id="mobileNumber" name="mobileNumber" placeholder="+91 98765 43210">
+                        <button class="btn btn-primary" type="button" id="btnSendMobileOtp">Send OTP</button>
+                      </div>
+                      <div id="mobileOtpStatus" class="mt-1" style="display: none;">
+                        <small class="text-success fw-500">OTP sent successfully.</small>
+                        <small class="ms-2"><a href="javascript:void(0)" class="btn-resend">Resend OTP</a></small>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="mobileOtp" class="form-label">Mobile OTP</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="mobileOtp" name="mobileOtp" placeholder="Enter 6-digit OTP" disabled> 
+                        <button class="btn btn-primary" type="button" id="btnVerifyMobileOtp" disabled>Verify</button>
+                      </div>
+                      <div id="mobileVerifyStatus" class="mt-1" style="display: none;">
+                        <small id="mobileVerifyMessage"></small>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="emailAddress" class="form-label">Email address</label>
+                      <div class="input-group">
+                        <input type="email" class="form-control" id="emailAddress" name="emailAddress" placeholder="name@example.com">
+                        <button class="btn btn-primary" type="button" id="btnSendEmailOtp">Send OTP</button>
+                      </div>
+                      <div id="emailOtpStatus" class="mt-1" style="display: none;">
+                        <small class="text-success fw-500">OTP sent successfully.</small>
+                        <small class="ms-2"><a href="javascript:void(0)" class="btn-resend">Resend OTP</a></small>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="emailOtp" class="form-label">Email OTP</label>
+                      <div class="input-group">
+                         <input type="text" class="form-control" id="emailOtp" name="emailOtp" placeholder="Enter 6-digit OTP" disabled> 
+                        <button class="btn btn-primary" type="button" id="btnVerifyEmailOtp" disabled>Verify</button>
+                      </div>
+                      <div id="emailVerifyStatus" class="mt-1" style="display: none;">
+                        <small id="emailVerifyMessage"></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-content" data-step="3">
+                <div class="bank-open-panel">
+                  <div class="bank-open-panel-title">
+                    <div>
+                      <h5>PAN and Aadhaar verification</h5>
+                      <p>Keep PAN and Aadhaar in one dedicated KYC section without mixing personal information.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="aadhaarNumber" class="form-label"> Aadhaar number </label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="aadhaarNumber" name="aadhaarNumber" placeholder="123456789012">
+                            <button class="btn btn-primary" type="button" id="btnSendAadhaarOtp"> Send OTP </button>
+                          </div>
+
+                        <div id="aadhaarOtpStatus" class="mt-1" style="display:none;">
+                            <small class="text-success fw-500">OTP sent successfully.</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="aadhaarOtp" class="form-label">Aadhaar OTP</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="aadhaarOtp" name="aadhaarOtp" placeholder="Enter Aadhaar OTP" disabled>
+                            <button class="btn btn-primary" type="button" id="btnVerifyAadhaarOtp" disabled> Verify </button>
+                        </div>
+
+                        <div id="aadhaarVerifyStatus" class="mt-1" style="display:none;">
+                            <small id="aadhaarVerifyMessage"></small>
+                        </div>
+
+                  </div>
+                    <div class="col-md-6">
+                      <label for="panNumber" class="form-label">PAN number</label>
+                      <input type="text" class="form-control" id="panNumber" name="panNumber" placeholder="ABCDE1234F">
+                    </div>
+                    <div class="col-12">
+                      <label for="addressLine1" class="form-label">Aadhaar address</label>
+                      <textarea class="form-control" id="addressLine1" name="addressLine1" placeholder="Enter address as per Aadhaar"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="city" class="form-label">City</label>
+                      <input type="text" class="form-control" id="city" name="city" placeholder="Mumbai">
+                    </div>
+                    <div class="col-md-3">
+                      <label for="state" class="form-label">State</label>
+                      <input type="text" class="form-control" id="state" name="state" placeholder="Maharashtra">
+                    </div>
+                    <div class="col-md-3">
+                      <label for="postalCode" class="form-label">PIN code</label>
+                      <input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="400001">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-content" data-step="4">
+                <div class="bank-open-panel">
+                  <div class="bank-open-panel-title">
+                    <div>
+                      <h5>Account setup</h5>
+                      <p>Set the account type and nominee details for this registration flow.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="accountType" class="form-label">Account type</label>
+                      <select class="form-select" id="accountType" name="accountType">
+                        <option value="">Select account type</option>
+                        <option selected>Savings</option>
+                        <option>Current</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="nomineeOpted" class="form-label">Nominee</label>
+                      <select class="form-select" id="nomineeOpted" name="nomineeOpted">
+                        <option value="">Select option</option>
+                        <option selected>Yes</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                    
+                    <div id="nomineeDetailsRow" class="row g-3 mt-0">
+                      <div class="col-md-6">
+                        <label for="nomineeName" class="form-label">Nominee name</label>
+                        <input type="text" class="form-control" id="nomineeName" name="nomineeName" placeholder="Anita Sharma">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="nomineeRelation" class="form-label">Relationship</label>
+                        <select class="form-select" id="nomineeRelation" name="nomineeRelation">
+                          <option value="">Select relation</option>
+                          <option>Mother</option>
+                          <option>Father</option>
+                          <option>Spouse</option>
+                          <option>Brother</option>
+                          <option>Sister</option>
+                          <option>Son</option>
+                          <option>Daughter</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="nomineeDob" class="form-label">Nominee date of birth</label>
+                        <input type="date" class="form-control" id="nomineeDob" name="nomineeDob">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-content" data-step="5">
+                <div class="bank-review-grid">
+                  <div class="bank-open-summary">
+                    <div class="bank-summary-head">
+                      <span class="bank-review-icon"><i class="bi bi-person-vcard"></i></span>
+                      <div>
+                        <h6 class="mb-1">Applicant summary</h6>
+                        <small class="text-muted">Basic customer details</small>
+                      </div>
+                    </div>
+                    <div class="bank-summary-grid">
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Applicant name</span>
+                        <span class="bank-summary-value" id="summaryApplicant">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">DOB</span>
+                        <span class="bank-summary-value" id="summaryDob">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Mobile</span>
+                        <span class="bank-summary-value" id="summaryMobile">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Aadhaar</span>
+                        <span class="bank-summary-value" id="summaryAadhaar">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">PAN</span>
+                        <span class="bank-summary-value" id="summaryPan">-</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bank-open-summary">
+                    <div class="bank-summary-head">
+                      <span class="bank-review-icon"><i class="bi bi-card-checklist"></i></span>
+                      <div>
+                        <h6 class="mb-1">KYC summary</h6>
+                        <small class="text-muted">Account setup and nominee</small>
+                      </div>
+                    </div>
+                    <div class="bank-summary-grid">
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Email</span>
+                        <span class="bank-summary-value" id="summaryEmail">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Occupation</span>
+                        <span class="bank-summary-value" id="summaryOccupation">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Account type</span>
+                        <span class="bank-summary-value" id="summaryAccountType">-</span>
+                      </div>
+                      <div class="bank-summary-item">
+                        <span class="bank-summary-label">Nominee</span>
+                        <span class="bank-summary-value" id="summaryNominee">-</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bank-review-box">
+                  <h6 class="mb-2">Final declaration</h6>
+                  <p class="text-muted mb-3">Review the details below and confirm before submission.</p>
+
+                  <div class="bank-review-list">
+                    <div class="bank-review-item">
+                      <span class="bank-review-icon"><i class="bi bi-geo-alt"></i></span>
+                      <div>
+                        <strong id="summaryAddress">-</strong>
+                        <span>Aadhaar address</span>
+                      </div>
+                    </div>
+                    <div class="bank-review-item">
+                      <span class="bank-review-icon"><i class="bi bi-people"></i></span>
+                      <div>
+                        <strong id="summaryAccountAndNominee">-</strong>
+                        <span>Account type and nominee setup</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-check mt-4">
+                    <input class="form-check-input" type="checkbox" id="declarationConsent" name="declarationConsent">
+                    <label class="form-check-label" for="declarationConsent">I confirm that the information provided is correct and my PAN and Aadhaar details belong to me.</label>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="termsConsent" name="termsConsent">
+                    <label class="form-check-label" for="termsConsent">I accept the account opening terms, KYC declaration and FATCA/CRS declaration.</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-actions">
+                <button type="button" class="btn btn-outline-secondary wizard-prev" disabled>
+                  <i class="bi bi-arrow-left me-1"></i> Previous
+                </button>
+                <button type="button" class="btn btn-primary wizard-next">
+                  Save and continue <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+                <button type="submit" class="btn btn-success wizard-submit bank-open-submit" style="display: none;">
+                  <i class="bi bi-check2-circle me-1"></i> Submit Application
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <footer class="footer-centered">
+          <div class="footer-copyright">&copy; 2026 <a href="#">NiceAdmin</a>. All Rights Reserved.</div>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script th:src="@{/assets/js/email-decode.min.js}"></script>
+  <script th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  <script th:src="@{/assets/js/apexcharts.min.js}"></script>
+  <script th:src="@{/assets/js/chart.umd.js}"></script>
+  <script th:src="@{/assets/js/echarts.min.js}"></script>
+  <script th:src="@{/assets/js/simple-datatables.js}"></script>
+  <script th:src="@{/assets/js/quill.js}"></script>
+  <script th:src="@{/assets/js/tinymce.min.js}"></script>
+  <script th:src="@{/assets/js/choices.min.js}"></script>
+  <script th:src="@{/assets/js/flatpickr.min.js}"></script>
+
+  <!-- Template Main JS Files -->
+  <script th:src="@{/assets/js/theme.js}"></script>
+  <script th:src="@{/assets/js/main.js}"></script>
+
+  <!-- App Sidebar Toggle (for app pages with sidebars) -->
+  <script th:src="@{/assets/js/apps-sidebar-toggle.js}"></script>
+
+  <!-- Page Specific JS Files -->
+  <script src="/assets/js/pages/account_opening/validation.js?v=2"></script>
+  <script src="/assets/js/pages/account_opening/wizard.js?v=2"></script>
+
+
+  <script>
+
+console.log("INLINE JS RUNNING");
+
+</script>
+
+  
+</body>
+
+</html>

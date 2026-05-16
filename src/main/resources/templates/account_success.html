@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Account Opened</title>
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <div class="card shadow p-5 text-center">
+
+        <h2 class="text-success mb-4">
+            Account Opened Successfully
+        </h2>
+
+        <hr>
+
+        <h5 class="mb-3">
+            Customer Name:
+            <span id="customerName"></span>
+        </h5>
+
+        <h5 class="mb-3">
+            Account Number:
+            <span id="accountNumber"></span>
+        </h5>
+
+        <h5 class="mb-3">
+            CRN:
+            <span id="crn"></span>
+        </h5>
+
+        <h5 class="mb-3">
+            Account Type:
+            <span id="accountType"></span>
+        </h5>
+
+        <h5 class="mb-4">
+            Current Balance:
+            ₹0.00
+        </h5>
+
+        <!-- LOGIN BUTTON -->
+        <a href="/login" class="btn btn-primary px-5 py-2"> Go To Login </a>
+
+    </div>
+
+</div>
+
+<script>
+
+    // CUSTOMER NAME
+    document.getElementById("customerName")
+    .innerText =
+    localStorage.getItem("customerName");
+
+    // ACCOUNT NUMBER
+    document.getElementById("accountNumber")
+    .innerText =
+    localStorage.getItem("accountNumber");
+
+    // CRN
+    document.getElementById("crn")
+    .innerText =
+    localStorage.getItem("crn");
+
+    // ACCOUNT TYPE
+    document.getElementById("accountType")
+    .innerText =
+    localStorage.getItem("accountType");
+
+</script>
+
+</body>
+</html>
